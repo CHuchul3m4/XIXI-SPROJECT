@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#14060d">
+<title>Happy Birthday, Ximena 🎩</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,700;0,900;1,600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- CURTAIN -->
+<div id="curtain">
+  <div class="panel panel-l"></div>
+  <div class="panel panel-r"></div>
+  <div class="curtain-center">
+    <div class="hat" aria-hidden="true">🎩</div>
+    <p>A little show for Ximena.</p>
+    <button id="openBtn" type="button">Open the curtain</button>
+  </div>
+</div>
+
+<!-- 1. Espantasuegras: sin el atributo 'loop' para que suene solo una vez -->
+<audio id="espantasuegras" preload="auto">
+  <source src="espantasuegras.wav" type="audio/wav">
+</audio>
+
+<!-- 2. Música de fondo: con el atributo 'loop' para que se repita siempre -->
+<audio id="music" loop preload="auto">
+  <source src="showtime.mp3" type="audio/mpeg">
+</audio>
+<button id="musicBtn" type="button" hidden>🎵 Play music</button>
+
+<main class="stage">
+  <header class="hero">
+    <p class="spark" aria-hidden="true">♦ ✦ ♥ ✦ ♠ ✦ ♥ ✦ ♦</p>
+    <h1>Happy Birthday,<br><span>Ximena</span></h1>
+    <p class="lead">The lights are up and the stage is yours today.</p>
+  </header>
+
+  <section class="note" aria-labelledby="noteTitle">
+    <h2 id="noteTitle">A note for you</h2>
+    <p>Happy birthday, Ximena!</p>
+    <p>I hope today you can get your presents , and also get your wishes on genshin hahah , i hope you are okay , and enjoy this day , i took my time to develop this little page for you , i wish you get something good for presents , if you wanna show us off , btw here's your friends little letters down there . happy birthday dummy </p>
+    <img src="lyney-chibi.gif" alt="lyney">
+    <p class="sign">Gomez</p>
+  </section>
+
+  <section class="guestbook" aria-labelledby="gbTitle">
+    <h2 id="gbTitle">Leave a wish for Ximena</h2>
+    <form id="wishForm">
+      <label for="wishMsg">Your message (anonymous)</label>
+      <textarea id="wishMsg" maxlength="500" required placeholder="Write something kind..."></textarea>
+      <div class="form-row">
+        <span id="count">0 / 500</span>
+        <button type="submit" id="sendBtn">Send wish</button>
+      </div>
+      <p id="formStatus" role="status" aria-live="polite"></p>
+    </form>
+    <div id="wishList" class="wish-list" aria-label="Wishes from friends"></div>
+  </section>
+
+  <footer>
+    <p>Made with a little HTML, No sleep and love .</p>
+    <p>Camote Team Software© Xixi's Birthday 2026 </p>
+  </footer>
+</main>
+
+</body>
+</html>

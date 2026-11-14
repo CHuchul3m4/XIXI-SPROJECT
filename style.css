@@ -1,0 +1,122 @@
+:root{
+  --ink:#14060d;
+  --wine:#2a0b19;
+  --crimson:#c4143a;
+  --rose:#ff5c8a;
+  --blush:#ffd6e2;
+  --ivory:#fff6f3;
+  --gold:#f2c46d;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:"Quicksand",system-ui,sans-serif;
+  color:var(--ivory);
+  line-height:1.65;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 0%,rgba(255,92,138,.35),transparent 70%),
+    radial-gradient(ellipse 80% 50% at 50% 100%,rgba(196,20,58,.3),transparent 70%),
+    var(--ink);
+  background-attachment:fixed;
+}
+h1,h2{font-family:"Bodoni Moda",Georgia,serif;margin:0}
+
+/* ---------- Curtain (the one big moment) ---------- */
+#curtain{position:fixed;inset:0;z-index:50;display:grid;place-items:center;transition:opacity .5s ease 1s}
+#curtain.open{opacity:0;pointer-events:none}
+.panel{
+  position:absolute;top:0;bottom:0;width:50%;
+  background:
+    repeating-linear-gradient(90deg,rgba(0,0,0,.35) 0 14px,transparent 14px 44px),
+    linear-gradient(180deg,var(--crimson),#7d0c26);
+  box-shadow:0 0 60px rgba(0,0,0,.7);
+  transition:transform 1.4s cubic-bezier(.7,0,.2,1);
+}
+.panel-l{left:0}
+.panel-r{right:0}
+#curtain.open .panel-l{transform:translateX(-102%)}
+#curtain.open .panel-r{transform:translateX(102%)}
+.curtain-center{position:relative;text-align:center;padding:0 1.5rem;transition:opacity .4s}
+#curtain.open .curtain-center{opacity:0}
+.hat{font-size:5rem;filter:drop-shadow(0 6px 14px rgba(0,0,0,.6));animation:bob 3s ease-in-out infinite}
+.curtain-center p{font-family:"Bodoni Moda",serif;font-style:italic;font-size:1.5rem;margin:.5rem 0 1.5rem;text-shadow:0 2px 10px #000}
+@keyframes bob{50%{transform:translateY(-8px) rotate(-4deg)}}
+
+button{
+  font:600 1rem "Quicksand",sans-serif;
+  color:var(--ink);
+  background:var(--blush);
+  border:0;
+  border-radius:999px;
+  padding:.8rem 1.6rem;
+  cursor:pointer;
+  box-shadow:0 4px 0 var(--rose);
+  transition:transform .15s,box-shadow .15s;
+}
+button:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--rose)}
+button:active{transform:translateY(3px);box-shadow:0 1px 0 var(--rose)}
+button:disabled{opacity:.6;cursor:wait}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+#musicBtn{position:fixed;right:1rem;bottom:1rem;z-index:20;font-size:.9rem;padding:.55rem 1rem}
+
+/* ---------- Page ---------- */
+.stage{max-width:680px;margin:0 auto;padding:4rem 1.25rem 3rem}
+.hero{text-align:center;margin-bottom:3.5rem}
+.spark{color:var(--gold);letter-spacing:.4em;margin:0 0 1rem;font-size:.9rem}
+h1{font-size:clamp(2.6rem,10vw,4.6rem);font-weight:900;line-height:1.05}
+h1 span{font-style:italic;font-weight:700;color:var(--rose);text-shadow:0 0 28px rgba(255,92,138,.55)}
+.lead{font-size:1.15rem;margin:1.2rem 0 1.4rem;color:var(--blush)}
+
+section{margin-bottom:3.5rem}
+h2{font-size:1.8rem;font-weight:700;margin-bottom:1rem}
+
+/* Message as a ticket */
+.note{
+  position:relative;
+  background:var(--ivory);
+  color:#3a1020;
+  padding:2.2rem 1.8rem 2rem;
+  border-radius:6px 28px 6px 28px;
+  box-shadow:10px 10px 0 var(--crimson),0 20px 50px rgba(0,0,0,.5);
+  transform:rotate(-.6deg);
+}
+.note::before{
+  content:"";position:absolute;inset:10px;border:1.5px dashed var(--rose);border-radius:4px 22px 4px 22px;pointer-events:none;
+}
+.note h2{color:var(--crimson)}
+.note p{font-family:"Bodoni Moda",Georgia,serif;font-size:1.12rem;line-height:1.8;margin:0 0 1rem;max-width:60ch}
+.note img{display:block;width:100%;max-width:200px;height:auto;margin:1.2rem auto;border-radius:16px}
+.note .sign{font-style:italic;font-size:1.3rem;color:var(--crimson);margin:1.4rem 0 0;text-align:right}
+
+/* Guestbook */
+form{display:grid;gap:.6rem}
+label{font-weight:600;color:var(--blush)}
+textarea{
+  width:100%;min-height:120px;resize:vertical;padding:.9rem 1rem;
+  font:inherit;color:var(--ivory);
+  background:rgba(255,255,255,.07);border:1.5px solid rgba(255,92,138,.6);border-radius:14px;
+}
+textarea::placeholder{color:rgba(255,246,243,.5)}
+.form-row{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+#count{font-size:.9rem;color:var(--blush)}
+#formStatus{min-height:1.4em;margin:0;font-size:.95rem}
+.wish-list{display:grid;gap:1rem;margin-top:2rem}
+.wish{
+  background:rgba(255,255,255,.06);border-left:4px solid var(--rose);
+  padding:1rem 1.2rem;border-radius:4px 16px 16px 4px;white-space:pre-wrap;overflow-wrap:anywhere;
+}
+.wish time{display:block;margin-top:.5rem;font-size:.82rem;color:var(--blush);opacity:.8}
+.empty{color:var(--blush);text-align:center}
+
+footer{text-align:center;color:var(--blush);font-size:.9rem;opacity:.85}
+
+/* Confetti */
+.bit{position:fixed;top:-2rem;z-index:60;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(var(--r))}}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01s!important;scroll-behavior:auto}
+}
